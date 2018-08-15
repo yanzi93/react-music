@@ -10,3 +10,11 @@ react 框架、懒加载、redux 数据管理、axios 数据通信、API 调用�
 实现了通过 API 与后端的数据交互。
 
 ## 页面展示
+![home](https://github.com/yanzi93/react-music/blob/master/showImg/home.png?raw=true)
+
+![plist](https://github.com/yanzi93/react-music/blob/master/showImg/plist.png?raw=true)
+
+![playing](https://github.com/yanzi93/react-music/blob/master/showImg/playing.png?raw=true)
+
+![singer](https://github.com/yanzi93/react-music/blob/master/showImg/singer.png?raw=true)
+
