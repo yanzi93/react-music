@@ -21,7 +21,9 @@ class SongList extends Component {
         songList.map((item) => {
           return (
             <Item 
-              extra={<i className="iconfont icon-xiazai-copy" style={{'fontSize':'16px'}}></i>} 
+              extra={<i 
+                className="iconfont icon-jinzhixiazai no-download-icon" 
+              ></i>} 
               key={item.hash}
               onClick={()=>{
                 this.props.dispatch({type: 'updateHash', hash: item.hash});

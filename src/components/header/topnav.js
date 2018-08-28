@@ -11,7 +11,8 @@ class TopNav extends Component {
         mode="dark"
         leftContent={
           <i 
-          className="iconfont icon-tubiaozhizuomoban logo-icon"></i>
+          className="iconfont icon-tubiaozhizuomoban logo-icon"
+          ></i>
         }
         rightContent={[
           <Icon 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom';
 import { Icon } from 'antd-mobile';
+import classnames from 'classnames';
 
 import Lyirc from './lyirc';
 import Controls from './controls'
@@ -8,7 +9,13 @@ import Controls from './controls'
 class PlayerMask extends Component {
   render() {
     return ReactDOM.createPortal(
-      <div className="player-mask" style={{ top: 0}}>
+      <div 
+      className="player-mask"
+      className={classnames({
+        'player-mask': true,
+        'player-mask-active': this.props.showStatus
+      })}
+      >
         <img 
         className="bg-overlay"
         src={this.props.imgUrl && this.props.imgUrl.replace('{size}', 240)}

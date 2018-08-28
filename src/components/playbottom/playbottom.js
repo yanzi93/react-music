@@ -3,11 +3,13 @@ import ReactDOM from 'react-dom';
 import {connect} from 'react-redux';
 import classnames from 'classnames';
 
+
 import './playbottom.css';
 import {parseLyric} from './parseLyric';
 
 import { getSongMp3, getRc } from '../../server/searchMp3';
 import PlayerMask from './player/playermask';
+import playerBg from '../../style/img/player-bg1.png';
 
 class PlayBottom extends Component {
   constructor(props) {
@@ -18,7 +20,10 @@ class PlayBottom extends Component {
       isPlay: false,
       duration: 1,
       currentTime: 0,
-      playInfo: {},
+      playInfo: {
+        imgUrl:playerBg,
+        songName: 'music'
+      },
       index: 0,
       rc: []
     }
@@ -118,7 +123,7 @@ class PlayBottom extends Component {
 
   render() {
     let {playInfo} = this.state;
-    return  this.props.hash ? ReactDOM.createPortal(
+    return  ReactDOM.createPortal(
       <div className="play-bottom">
         <audio
           autoPlay src={playInfo.url}
@@ -128,8 +133,14 @@ class PlayBottom extends Component {
           ref={this.audio}
         >
         </audio>
-        <div className="play-left" onClick={()=>this.setState({isShowMask: true})}>
-          <img src={playInfo.imgUrl && playInfo.imgUrl.replace('{size}', 240)} alt={playInfo.singerName}/>
+        <div 
+          className="play-left" 
+          onClick={()=>this.setState({isShowMask: true})}>
+          <img 
+          src={playInfo.imgUrl && playInfo.imgUrl.replace('{size}', 240)} 
+          alt={playInfo.singerName}
+          />
+
           <p>
             <span>{playInfo.songName}</span>
             <span>{playInfo.singerName}</span>
@@ -154,9 +165,8 @@ class PlayBottom extends Component {
             onClick={this.nextSong}
           ></div>
         </div>
-        {
-          this.state.isShowMask 
-          ? <PlayerMask
+        
+          <PlayerMask
               playOrPause={this.playOrPause} 
               prevSong={this.prevSong}
               nextSong={this.nextSong}
@@ -167,12 +177,11 @@ class PlayBottom extends Component {
               currentTime={this.state.currentTime}
               rc={this.state.rc}
               changeShowMask={this.changeShowMask}
-           /> 
-          : null
-        }
+              showStatus={this.state.isShowMask }
+          /> 
         
       </div>
-    ,document.body) : null
+    ,document.body)
   }
 }
 
@@ -183,3 +192,22 @@ function mapState2Props(state) {
   }
 }
 export default connect(mapState2Props)(PlayBottom);
+
+
+// {
+//           this.state.isShowMask 
+//           ? <PlayerMask
+//               playOrPause={this.playOrPause} 
+//               prevSong={this.prevSong}
+//               nextSong={this.nextSong}
+//               isPlay={this.state.isPlay}
+//               updateCurrentTime={this.updateCurrentTime}
+//               duration={this.state.duration}
+//               imgUrl={playInfo.imgUrl}
+//               currentTime={this.state.currentTime}
+//               rc={this.state.rc}
+//               changeShowMask={this.changeShowMask}
+//               showStatus={this.state.isShowMask }
+//            /> 
+//           : null
+//         }
