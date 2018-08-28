@@ -31,8 +31,20 @@ src
   - search    //搜索
   - common    //公共展示组件，包含详细信息、列表
   - routes.js //路由组件
-  
-  
+
+##redux使用
+歌曲列表组件和播放器组件通信使用redux。
+原因： 组件嵌套复杂，相隔较远。
+通信数据： 播放歌单，当前播放歌曲的hash
+
+##懒加载使用
+使用react的lozad组件，防止加载过多图片。
+使用页面有歌单页面，歌手子页面中各类歌手页面。
+只加载可是区域图片，未显示区域页面显示默认图片。
+
+
+
+
 ## 页面展示
 ![home](https://github.com/yanzi93/react-music/blob/master/showImg/home.png?raw=true)
 
